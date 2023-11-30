@@ -1,5 +1,3 @@
- 
-
 //**********************************************************************************************************//
 // Name: Ronni Kurtzhals                                                                                    //
 // Class: CSci 717                                                                                          //
@@ -18,7 +16,7 @@
 // You did an excellent job! 
 //**********************************************************************************************************
 
-package main; 
+package main;
 import java.util.Scanner;
 
 public class EncryptionMachine {
@@ -66,7 +64,7 @@ public class EncryptionMachine {
             encryptedWord += encryptedLetter;
         }
         System.out.println('"' + word + '"' + " has been encrypted to: " + '"' + encryptedWord + '"' + '\n');
-        return encryptedWord;
+        return encryptedWord; //CW - I set this return encryptedWord for the sake of unit tests
     }
 
     /*

@@ -6,10 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EncryptionMachineTest {
 
-
-    @Test
-    public void testMain() throws Exception {
-    	EncryptionMachine.main(null);
+    @Test 
+    public void testMain() {
+    	EncryptionMachine.runMachine();
     }
 	@Test
     public void oneLetterKey() {
@@ -17,12 +16,12 @@ public class EncryptionMachineTest {
     }
 
     @Test
-    public void basicKey() {
+    public void standardKey() {
         assertEquals("khoor", EncryptionMachine.encryptWord("hello"));
     }
 
     @Test
-    public void wraparoundKey() {
+    public void wrappedKey() {
         assertEquals("abc", EncryptionMachine.encryptWord("xyz"));
     }
 
@@ -39,17 +38,17 @@ public class EncryptionMachineTest {
     }
 
     @Test
-    public void messageWithNoWords() {
+    public void zeroWordMessage() {
         assertEquals("", EncryptionMachine.encryptWord(""));
     }
 
     @Test
-    public void entireAlphabet() {
+    public void fullAlphabet() {
         assertEquals("defghijklmnopqrstuvwxyzabc", EncryptionMachine.encryptWord("abcdefghijklmnopqrstuvwxyz"));
     }
 
     @Test
-    public void duplicateLetters() {
+    public void duplicateCharcters() {
         assertEquals("ddd", EncryptionMachine.encryptWord("aaa"));
     }
 
@@ -59,9 +58,16 @@ public class EncryptionMachineTest {
     }
 
     @Test
-    public void variedWordLength() {
+    public void variedWordLengths() {
         assertEquals("d", EncryptionMachine.encryptWord("a"));
         assertEquals("ee", EncryptionMachine.encryptWord("bb"));
         assertEquals("fff", EncryptionMachine.encryptWord("ccc"));
     }
+
+    @Test
+    public void encryptionCheck() {
+        assertEquals('d', EncryptionMachine.encryptLetter('a'));
+        assertEquals('a', EncryptionMachine.encryptLetter('x'));
+    }
+
 }

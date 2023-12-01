@@ -6,11 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EncryptionMachineTest {
 
-    @Test 
-    public void testMain() {
-    	EncryptionMachine.runMachine();
-    }
-	@Test
+    	@Test
     public void oneLetterKey() {
         assertEquals("d", EncryptionMachine.encryptWord("a"));
     }
@@ -68,6 +64,20 @@ public class EncryptionMachineTest {
     public void encryptionCheck() {
         assertEquals('d', EncryptionMachine.encryptLetter('a'));
         assertEquals('a', EncryptionMachine.encryptLetter('x'));
+    }
+	
+@Test
+    public void emptyString() {
+        assertEquals("", EncryptionMachine.encryptWord(""));
+    }
+ @Test
+    public void wrapEndOfAlphabet() {
+        assertEquals("abc", EncryptionMachine.encryptWord("xyz"));
+    }
+
+    @Test
+    public void wrapStartOfAlphabet() {
+        assertEquals("xyz", EncryptionMachine.encryptWord("uvw"));
     }
 
 }
